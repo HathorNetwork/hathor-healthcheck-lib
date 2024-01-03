@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["14", "16", "18", "20"]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # https://github.com/actions/checkout/releases/tag/v4.1.1
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+        # https://github.com/actions/setup-node/releases/tag/v4.0.1
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8
+        with:
+          node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Run linters
+      run: |
+        npm run lint
+
+    - name: Run tests
+      run: |
+        npm run test
