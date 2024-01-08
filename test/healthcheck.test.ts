@@ -23,10 +23,6 @@ describe('Healthcheck', () => {
     healthcheck = new Healthcheck({ name: 'MyHealthcheck' });
   });
 
-  afterEach(() => {
-    healthcheck.reset_checks();
-  });
-
   it('should add a component to the healthcheck', () => {
     const component: HealthcheckComponentInterface =
       new HealthcheckDatastoreComponent({ name: 'Datastore' });
@@ -99,28 +95,35 @@ describe('Healthcheck', () => {
     const response = await healthcheck.run();
 
     expect(response).toBeInstanceOf(HealthcheckResponse);
-    expect(response.status).toBe(HealthcheckStatus.PASS);
-    expect(response.description).toBe('Health status of MyHealthcheck');
-    expect(response.checks['HTTP'].length).toBe(1);
     expect(response.checks['HTTP'][0]).toBeInstanceOf(
       HealthcheckComponentStatus
     );
-    expect(response.checks['HTTP'][0].componentName).toBe('HTTP');
-    expect(response.checks['HTTP'][0].componentType).toBe(ComponentType.HTTP);
-    expect(response.checks['HTTP'][0].status).toBe(HealthcheckStatus.PASS);
-    expect(response.checks['HTTP'][0].output).toBe('HTTP healthcheck passed');
-    expect(response.checks['Internal'].length).toBe(1);
     expect(response.checks['Internal'][0]).toBeInstanceOf(
       HealthcheckComponentStatus
     );
-    expect(response.checks['Internal'][0].componentName).toBe('Internal');
-    expect(response.checks['Internal'][0].componentType).toBe(
-      ComponentType.INTERNAL
-    );
-    expect(response.checks['Internal'][0].status).toBe(HealthcheckStatus.PASS);
-    expect(response.checks['Internal'][0].output).toBe(
-      'Internal healthcheck passed'
-    );
+
+    expect(response).toMatchObject({
+      status: HealthcheckStatus.PASS,
+      description: 'Health status of MyHealthcheck',
+      checks: {
+        HTTP: [
+          {
+            componentName: 'HTTP',
+            componentType: ComponentType.HTTP,
+            status: HealthcheckStatus.PASS,
+            output: 'HTTP healthcheck passed',
+          },
+        ],
+        Internal: [
+          {
+            componentName: 'Internal',
+            componentType: ComponentType.INTERNAL,
+            status: HealthcheckStatus.PASS,
+            output: 'Internal healthcheck passed',
+          },
+        ],
+      },
+    });
   });
 
   it('should set the right status if a healthcheck doesnt affect service health', async () => {

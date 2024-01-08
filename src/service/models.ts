@@ -42,7 +42,7 @@ class HealthcheckResponse {
   /**
    * We use this function to remove some fields from the JSON representation of the object.
    */
-  private jsonReplacer() {
+  private static jsonReplacer() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (key: string, value: any) => {
       if (key === 'httpStatusCode' || key === 'affectsServiceHealth') {
@@ -60,7 +60,7 @@ class HealthcheckResponse {
    * @returns The JSON string
    */
   toJson(): string {
-    return JSON.stringify(this, this.jsonReplacer());
+    return JSON.stringify(this, HealthcheckResponse.jsonReplacer());
   }
 }
 
