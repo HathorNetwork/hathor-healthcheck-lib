@@ -34,6 +34,8 @@ class HealthcheckCallbackResponse {
  * The status of a health check in a specific component.
  */
 class HealthcheckComponentStatus {
+  // The fields are based on the fields described in
+  // https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check#name-the-checks-object
   componentName: string;
   componentType: ComponentType;
   status: HealthcheckStatus;

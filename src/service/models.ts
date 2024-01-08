@@ -1,6 +1,9 @@
 import { HealthcheckComponentStatus } from '../component/models';
 import { HealthcheckStatus } from '../shared/models';
 
+// We currently only consider 200 and 503 as valid HTTP status codes for healchecks.
+const VALID_HTTP_STATUS_CODES = [200, 503];
+
 class HealthcheckResponse {
   status: HealthcheckStatus;
   description: string;
@@ -27,7 +30,7 @@ class HealthcheckResponse {
       throw new Error(`Invalid status: ${status}`);
     }
 
-    if (httpStatusCode < 100 || httpStatusCode > 599) {
+    if (!VALID_HTTP_STATUS_CODES.includes(httpStatusCode)) {
       throw new Error(`Invalid httpStatusCode: ${httpStatusCode}`);
     }
   }
