@@ -101,7 +101,7 @@ console.log(JSON.stringify(status.toJsonSerializable()))
 
 - [ ] Support for manually setting the component health status (instead of passing a callback)
 - [ ] Support for the optional fields in the service status described in https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check#name-status
-- [ ] Support for the optional fields in the component staus described in https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check#name-the-checks-object
+- [ ] Support for the optional fields in the component status described in https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check#name-the-checks-object
 - [ ] Support for defining customized keys for the component status object
 
 We welcome contributions to help us achieve these goals. See below how to contribute.
@@ -112,4 +112,4 @@ See the [contributing guide](CONTRIBUTING.md) for more information.
 
 ## License
 
-By contributing to python-healthchecklib, you agree that your contributions will be licensed under the [MIT License](https://opensource.org/licenses/MIT).
+By contributing to hathor-healthcheck-lib, you agree that your contributions will be licensed under the [MIT License](https://opensource.org/licenses/MIT).

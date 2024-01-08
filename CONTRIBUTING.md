@@ -1,6 +1,6 @@
-# Contributing to python-healthchecklib
+# Contributing to hathor-healthcheck-lib
 
-Thank you for considering contributing to python-healthchecklib! This document outlines the guidelines for contributing to this project.
+Thank you for considering contributing to hathor-healthcheck-lib! This document outlines the guidelines for contributing to this project.
 
 ## Code of Conduct
 
@@ -16,7 +16,7 @@ This project adheres to the [Contributor Covenant Code of Conduct](https://www.c
 2. If you've added code that should be tested, add tests.
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes. You can run it with `npm run test`.
-5. Make sure your code lints. You can run the linter with `npm run lint`. You can automatizally format it with `npm run format`.
+5. Make sure your code lints. You can run the linter with `npm run lint`. You can automatically format it with `npm run format`.
 6. Submit a pull request.
 
 ## License
