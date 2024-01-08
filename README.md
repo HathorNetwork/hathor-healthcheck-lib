@@ -73,7 +73,7 @@ healthcheck.add_component(db_component)
 status = await healthcheck.run()
 
 // Print the status
-console.log(JSON.stringify(status.toJsonSerializable()))
+console.log(JSON.parse(status.toJson()))
 
 // {
 //   "status": "pass",

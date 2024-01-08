@@ -58,7 +58,7 @@ describe('Models', () => {
         httpStatusCode: 200,
       });
 
-      expect(response.toJsonSerializable()).toEqual({
+      expect(JSON.parse(response.toJson())).toEqual({
         status: HealthcheckStatus.PASS,
         description: 'Test description',
         checks: {

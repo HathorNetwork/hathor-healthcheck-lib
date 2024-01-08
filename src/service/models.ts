@@ -54,12 +54,13 @@ class HealthcheckResponse {
   }
 
   /**
-   * This function turns the object into a JSON serializable using the jsonReplacer function.
+   * This function turns the object into a JSON string using the jsonReplacer function
+   * to remove some fields.
    *
-   * @returns The JSON serializable object
+   * @returns The JSON string
    */
-  toJsonSerializable(): string {
-    return JSON.parse(JSON.stringify(this, this.jsonReplacer()));
+  toJson(): string {
+    return JSON.stringify(this, this.jsonReplacer());
   }
 }
 
