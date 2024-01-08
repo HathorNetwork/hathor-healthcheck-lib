@@ -1,18 +1,20 @@
 import {
   Healthcheck,
+} from '../src/service/healthcheck';
+
+import {
   HealthcheckComponentInterface,
   HealthcheckDatastoreComponent,
   HealthcheckGenericComponent,
   HealthcheckHTTPComponent,
   HealthcheckInternalComponent,
-} from '../src/healthcheck';
+} from '../src/component/healthcheck';
+
 import {
-  ComponentType,
-  HealthcheckCallbackResponse,
-  HealthcheckComponentStatus,
-  HealthcheckResponse,
   HealthcheckStatus,
-} from '../src/models';
+} from '../src/shared/models';
+import { ComponentType, HealthcheckCallbackResponse, HealthcheckComponentStatus } from '../src/component/models';
+import { HealthcheckResponse } from '../src/service/models';
 
 describe('Healthcheck', () => {
   let healthcheck: Healthcheck;
