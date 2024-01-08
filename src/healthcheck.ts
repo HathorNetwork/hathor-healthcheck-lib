@@ -6,6 +6,16 @@ import {
   HealthcheckStatus,
 } from './models';
 
+class InvalidHealthcheckCallbackResponse extends Error {
+  originalResponse: any;
+
+  constructor(message: string, originalResponse: any) {
+    super(message);
+
+    this.originalResponse = originalResponse;
+  }
+}
+
 abstract class HealthcheckComponentInterface {
   abstract component_type: ComponentType;
   name: string;
@@ -39,7 +49,7 @@ abstract class HealthcheckComponentInterface {
 
     for (const result of healthcheck_results) {
       if (!(result instanceof HealthcheckCallbackResponse)) {
-        throw new Error('HealthcheckCallbackResponse expected');
+        throw new InvalidHealthcheckCallbackResponse('HealthcheckCallbackResponse expected', result);
       }
 
       results.push(

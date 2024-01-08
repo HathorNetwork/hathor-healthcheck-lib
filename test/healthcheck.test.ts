@@ -62,9 +62,12 @@ describe('Healthcheck', () => {
 
     healthcheck.add_component(component);
 
-    await expect(healthcheck.run()).rejects.toThrow(
-      'HealthcheckCallbackResponse expected'
-    );
+    try {
+      await healthcheck.run();
+    } catch (error: any) {
+      expect(error.message).toBe('HealthcheckCallbackResponse expected');
+      expect(error.originalResponse).toEqual({});
+    }
   });
 
   it('should run the healthchecks and return the healthcheck response', async () => {
