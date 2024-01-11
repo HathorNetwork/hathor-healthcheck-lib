@@ -2,10 +2,6 @@
 
 Thank you for considering contributing to hathor-healthcheck-lib! This document outlines the guidelines for contributing to this project.
 
-## Code of Conduct
-
-This project adheres to the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). By participating, you are expected to uphold this code. Please report unacceptable behavior to contact@hathor.network.
-
 ## Before You Start 
 
 1. Make sure you open an issue to discuss the changes you want to make before you start working on them. This will help you get feedback on your ideas and avoid wasting time on something that might not be merged.
