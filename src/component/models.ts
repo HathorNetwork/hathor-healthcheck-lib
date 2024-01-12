@@ -9,6 +9,11 @@ enum ComponentType {
 
 /**
  * The response from a healthcheck callback.
+ *
+ * @property {HealthcheckStatus} status - the status of the component health
+ * @property {string} output - a human-readable description of the status
+ * @property {boolean} affectsServiceHealth - indicates whether the status of this component affects the overall service status.
+ *  This is present here so that the callback have control over this behaviour.
  */
 class HealthcheckCallbackResponse {
   status: HealthcheckStatus;
@@ -32,10 +37,21 @@ class HealthcheckCallbackResponse {
 
 /**
  * The status of a health check in a specific component.
+ *
+ * The fields are based on the fields described in
+ * https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check#name-the-checks-object
+ *
+ * @property {string} componentName - human-readable name for the component
+ * @property {ComponentType} componentType - the type of component
+ * @property {HealthcheckStatus} status - the status of the component health
+ * @property {string} output - a human-readable description of the status
+ * @property {string} time - the time the status was recorded
+ * @property {string} componentId - a unique identifier of the component, if any
+ * @property {string} observedValue - this could be used in case there is any kind of value associated with the healthcheck
+ * @property {string} observedUnit - the unit of the observedValue. e.g. for a time-based value it is important to know whether the time is reported in seconds, minutes, hours or something else
+ * @property {boolean} affectsServiceHealth - indicates whether the status of this component affects the overall service status
  */
 class HealthcheckComponentStatus {
-  // The fields are based on the fields described in
-  // https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check#name-the-checks-object
   componentName: string;
   componentType: ComponentType;
   status: HealthcheckStatus;

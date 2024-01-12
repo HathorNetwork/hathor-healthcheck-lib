@@ -1,7 +1,7 @@
 import { HealthcheckComponentStatus } from '../component/models';
 import { HealthcheckStatus } from '../shared/types';
 
-// We currently only consider 200 and 503 as valid HTTP status codes for healchecks.
+// We currently only consider 200 and 503 as valid HTTP status codes for healthchecks.
 const VALID_HTTP_STATUS_CODES = [200, 503];
 
 class HealthcheckResponse {
