@@ -4,7 +4,7 @@ import {
 } from '../../src/component/models';
 import { HealthcheckResponse } from '../../src/service/models';
 
-import { HealthcheckStatus } from '../../src/shared/models';
+import { HealthcheckStatus } from '../../src/shared/types';
 
 describe('Models', () => {
   describe('HealthcheckResponse', () => {

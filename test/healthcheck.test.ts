@@ -12,7 +12,7 @@ import {
 
 import {
   HealthcheckStatus,
-} from '../src/shared/models';
+} from '../src/shared/types';
 import { ComponentType, HealthcheckCallbackResponse, HealthcheckComponentStatus } from '../src/component/models';
 import { HealthcheckResponse } from '../src/service/models';
 
