@@ -61,9 +61,11 @@ describe('Models', () => {
       expect(JSON.parse(response.toJson())).toEqual({
         status: HealthcheckStatus.PASS,
         description: 'Test description',
+        httpStatusCode: 200,
         checks: {
           'Test Component': [
             {
+              affectsServiceHealth: true,
               componentName: 'Test Component',
               componentType: ComponentType.GENERIC,
               status: HealthcheckStatus.PASS,

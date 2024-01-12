@@ -18,7 +18,7 @@ enum ComponentType {
 class HealthcheckCallbackResponse {
   status: HealthcheckStatus;
   output: string;
-  affectsServiceHealth?: boolean;
+  affectsServiceHealth: boolean;
 
   constructor({
     status,

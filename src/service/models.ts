@@ -40,27 +40,12 @@ class HealthcheckResponse {
   }
 
   /**
-   * We use this function to remove some fields from the JSON representation of the object.
-   */
-  private static jsonReplacer() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (key: string, value: any) => {
-      if (key === 'httpStatusCode' || key === 'affectsServiceHealth') {
-        return undefined;
-      }
-
-      return value;
-    };
-  }
-
-  /**
-   * This function turns the object into a JSON string using the jsonReplacer function
-   * to remove some fields.
+   * This function turns the object into a JSON string
    *
    * @returns The JSON string
    */
   toJson(): string {
-    return JSON.stringify(this, HealthcheckResponse.jsonReplacer());
+    return JSON.stringify(this);
   }
 }
 
