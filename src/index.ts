@@ -2,7 +2,7 @@ import { HealthcheckComponentInterface, HealthcheckDatastoreComponent, Healthche
 import { ComponentType, HealthcheckCallbackResponse, HealthcheckComponentStatus } from './component/models';
 import { Healthcheck } from './service/healthcheck';
 import { HealthcheckResponse } from './service/models';
-import { HealthcheckStatus } from './shared/models';
+import { HealthcheckStatus } from './shared/types';
 
 export {
   Healthcheck,

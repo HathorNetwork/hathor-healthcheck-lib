@@ -1,4 +1,4 @@
-import { HealthcheckStatus } from '../shared/models';
+import { HealthcheckStatus } from '../shared/types';
 
 enum ComponentType {
   DATASTORE = 'datastore',

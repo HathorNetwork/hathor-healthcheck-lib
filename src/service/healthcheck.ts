@@ -1,4 +1,4 @@
-import { HealthcheckStatus } from '../shared/models';
+import { HealthcheckStatus } from '../shared/types';
 import { HealthcheckResponse } from './models';
 import { HealthcheckComponentInterface } from '../component/healthcheck';
 import { HealthcheckComponentStatus } from '../component/models';
